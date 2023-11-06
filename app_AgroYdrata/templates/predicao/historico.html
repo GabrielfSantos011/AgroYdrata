@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="{% static 'historico.css' %}" />
+
+  <title>Histórico</title>
+</head>
+
+<body>
+  <nav style="background-color: #258816; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+    <div class="nav__bar">
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-3-line"></i>
+      </div>
+    </div>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="{% url 'agroydrata' %}">HOME</a></li>
+      <li><a href="{% url 'predicao' %}">PREDIÇÃO</a></li>
+      <li><a href="{% url 'historico' %}">HISTÓRICO</a></li>
+      <li><a href="{% url 'logout' %}">SAIR</a></li>
+    </ul>
+  </nav>
+  <div class="margem">
+    <div class="container" style="padding: 30px 40px; color: #fff;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 30px 40px;">
+      <div>
+        <h1 style="text-align: center;">Histórico de Dados</h1>
+        <form method="GET" action="{% url 'historico' %}">
+          <div class="mb-3">
+            <label for="search" class="form-label">Tipo de Planta:</label>
+            <input type="text" class="form-control" id="search" name="search" value="{{ search_query }}" />
+          </div>
+          <button type="submit" class="btn btn-primary fw-semibold shadow-sm" style="border-radius: 16px; background-color: #258816;border-color: #258816;">Pesquisar</button>
+        </form>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Nitrogênio</th>
+            <th>Fósforo</th>
+            <th>Potássio</th>
+            <th>Temperatura</th>
+            <th>Umidade</th>
+            <th>pH</th>
+            <th>Precipitação</th>
+            <th>Tipo de Planta</th>
+            <th>Resultado</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Ações</th>
+            <th>PDF</th>
+          </tr>
+          {% for dado in dados %}
+          <tr>
+            <td>{{ dado.nitrogenio }}</td>
+            <td>{{ dado.fosforo }}</td>
+            <td>{{ dado.potassio }}</td>
+            <td>{{ dado.temperatura }}</td>
+            <td>{{ dado.umidade }}</td>
+            <td>{{ dado.ph }}</td>
+            <td>{{ dado.precipitacao }}</td>
+            <td>{{ dado.tp_planta }}</td>
+            <td>{{ dado.resultado }}</td>
+            <td>{{ dado.data_insercao|date:"d/m/Y" }}</td>
+            <td>{{ dado.horario_insercao|time:"H:i" }}</td>
+
+            <td>
+              <form method="post" action="{% url 'excluir_dado' dado.id_dados %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+              </form>
+            </td>
+            <td>
+              <a href="{% url 'gerar_relatorio_pdf' %}?dado_id={{ dado.id_dados }}" class="btn btn-danger btn-sm" target="_blank">PDF</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="{% static 'main.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

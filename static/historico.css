@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #2fa81c;
+  --primary-color-dark: #1e5e15;
+  --secondary-color: #12470c;
+  --secondary-color-dark: #15550b;
+  --text-light: #000000;
+  --extra-light: #f8f7fd;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  top: 0;
+  width: 100%;
+  margin: auto;
+  z-index: 9;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background: url(imgg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.nav__bar {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: #258816;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+  background-color: #258816;
+  transform: translateY(-100%);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.nav__links a:hover {
+  color: var(--primary-color);
+}
+
+.texto {
+  padding-top: 0.5rem;
+}
+
+img {
+  width: 100%;
+  display: flex;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  overflow-x: auto; /* Adicione esta linha para permitir rolagem horizontal */
+}
+
+.table th,
+.table td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.table th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: bold;
+}
+
+.table td {
+  background-color: var(--extra-light);
+  border: 1px solid var(--primary-color);
+}
+
+.table tr:nth-child(even) {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.table tr:nth-child(odd) {
+  background-color: var(--secondary-color-dark);
+  color: var(--white);
+}
+
+.table button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: 1px solid var(--primary-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table button:hover {
+  background-color: var(--primary-color-dark);
+  border: 1px solid var(--primary-color);
+}
+
+.btn.btn-primary:hover {
+  background-color: #258816; /* Cor de fundo quando o mouse passa por cima */
+  border-color: #258816; /* Cor da borda quando o mouse passa por cima */
+  transform: scale(1.05); /* Efeito de escala ao passar o mouse */
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s; /* Duração da animação */
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Adicione isso para suporte a rolagem suave em dispositivos com tela sensível ao toque */
+  scrollbar-width: thin; /* Adicione isso para ocultar a barra de rolagem em navegadores compatíveis */
+}
+
+/* Ocultar a barra de rolagem no Firefox */
+.table-responsive::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+/* Estilizar a alça da barra de rolagem no Firefox */
+.table-responsive::-webkit-scrollbar-thumb {
+  background: var(--primary-color); /* Cor da alça da barra de rolagem */
+}
+
+.margem {
+  padding-top: 4rem;
+}
+
+@media (width > 768px) {
+  nav {
+    padding-right: 3rem;
+    padding-top: 0.5rem;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav__bar {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    width: unset;
+    position: static;
+    transform: none;
+    flex-direction: row;
+    background-color: transparent;
+  }
+}

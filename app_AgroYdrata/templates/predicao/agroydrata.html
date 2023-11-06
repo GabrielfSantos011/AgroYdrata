@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="{% static 'agroydrata.css' %}" />
+
+  <title>AgroYdrata</title>
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+      <div class="nav__bar">
+        <div class="logo nav__logo">
+          <a href="#"><img src="/static/logo2.png" alt="logo" /></a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="{% url 'agroydrata' %}">HOME</a></li>
+        <li><a href="#about">SOBRE</a></li>
+        <li><a href="#service">BENEFÍCIOS</a></li>
+        <li><a href="{% url 'cadastro' %}">CADASTRAR</a></li>
+        <li><a href={% url 'login' %}>ENTRAR</a></li>
+      </ul>
+    </nav>
+    <div class="section__container header__container" id="home">
+      <div class="header__content">
+        <h1>Revolucionando a Agricultura com Precisão</h1>
+      </div>
+    </div>
+  </header>
+  <section class="banner__container">
+    <div class="banner__card">
+      <h4>Proporcionando resultados precisos e eficientes com IA</h4>
+    </div>
+    <div class="banner__card">
+      <h4>Maximizando seus rendimentos e recursos.</h4>
+    </div>
+    <div class="banner__image">
+      <img src="/static/caraReguandoM.jpg" alt="banner" />
+    </div>
+  </section>
+
+  <section class="section__container experience__container" id="about">
+    <div class="experience__image">
+      <img src="/static/imagemPlantandoG.jpg" alt="experience" />
+    </div>
+    <div class="experience__content">
+      <p class="section__subheader">O QUE É A AGROYDRATA?</p>
+      <h2 class="section__header">
+        Transformando a Agricultura com IA
+      </h2>
+      <p class="section__description" style="color: black;">
+        Uma solução inovadora que visa revolucionar a agricultura. Com uma visão centrada na
+        sustentabilidade, nosso projeto utiliza inteligência artificial e dados do solo para prever com precisão a
+        quantidade de água necessária para irrigar diferentes culturas. Estamos comprometidos em maximizar os
+        rendimentos das plantações, reduzir o desperdício de água e promover uma agricultura mais eficiente.
+      </p>
+    </div>
+  </section>
+
+  <section class="service" id="service">
+    <div class="section__container service__container">
+      <p class="section__subheader">POR QUE ESCOLHER O AGROYDRATA</p>
+      <h2 class="section__header">Benefícios do Nosso Sistema</h2>
+      <p class="section__description">
+        Descubra como o AgroYdrata pode transformar sua agricultura e trazer resultados excepcionais.
+      </p>
+      <div class="service__grid">
+        <div class="service__card">
+          <img src="/static/iaChipi.jpg" alt="service" />
+          <h4>IA</h4>
+          <p>
+            Utilizamos um modelo de Inteligência Artificial avançado para prever com precisão a quantidade de água necessária em seus cultivos,
+            maximizando seus rendimentos e economizando recursos hídricos.
+          </p>
+        </div>
+        <div class="service__card">
+          <img src="/static/farmer.jpg" alt="service" />
+          <h4>Facilidade de Uso</h4>
+          <p>
+            Nosso sistema é projetado com uma interface intuitiva, facilitando o uso para agricultores de todos
+            os níveis de experiência.
+          </p>
+        </div>
+        <div class="service__card">
+          <img src="/static/sustentabilidade.jpg" alt="service" />
+          <h4>Agricultura Sustentável</h4>
+          <p>
+            Contribua para a sustentabilidade do planeta, reduzindo o desperdício de água e promovendo práticas
+            agrícolas amigas do ambiente.
+          </p>
+        </div>
+        <div class="service__card">
+          <img src="/static/economia.jpg" alt="service" />
+          <h4>Otimização de Recursos</h4>
+          <p>
+            Economize tempo e dinheiro, obtenha resultados superiores em seus cultivos e faça escolhas
+            informadas com a ajuda do AgroYdrata.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="customisation">
+    <div class="section__container customisation__container">
+      <p class="section__subheader">ALGUNS DADOS</p>
+      <h2 class="section__header">
+        Eficiência da AgroYdrata
+      </h2>
+      <p class="section__description">
+        Um aplicativo com uma IA especialistas na predição de água capaz de oferecer
+        soluções agrícolas de alto nível visando impulsionar seus resultados.
+      </p>
+      <div class="customisation__grid">
+        <div class="customisation__card">
+          <h4>25+</h4>
+          <p>Tipos de Plantas Analisados</p>
+        </div>
+        <div class="customisation__card">
+          <h4>5,000+</h4>
+          <p>Usuários</p>
+        </div>
+        <div class="customisation__card">
+          <h4>10,000+</h4>
+          <p>Previsões Realizadas</p>
+        </div>
+        <div class="customisation__card">
+          <h4>2500+</h4>
+          <p>Dados de Treinamento</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__container3 testimonial__container" id="client">
+    <p class="section__subheader">DEPOIMENTOS DE CLIENTES</p>
+    <h2 class="section__header">Aprovado 100% pelos nossos Clientes</h2>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <img src="/static/pessoa1.jpg" alt="testimonial" />
+            <p>
+              O AgroYdrata revolucionou a forma como gerencio minha plantação. Suas previsões
+              precisas economizaram recursos e maximizaram meus rendimentos. Uma ferramenta
+              indispensável para qualquer agricultor!
+            </p>
+            <h4>- João Silva</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <img src="/static/pessoa2.jpg" alt="testimonial" />
+            <p>
+              Estou impressionado com o AgroYdrata. A IA por trás deste sistema é incrível. O
+              aplicativo é fácil de usar e as previsões são extremamente úteis para a minha plantação.
+            </p>
+            <h4>- Maria Oliveira</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <img src="/static/person3.jpg" alt="testimonial" />
+            <p>
+              Como agrônomo, o AgroYdrata se tornou uma ferramenta essencial no meu trabalho.
+              Suas análises de solo e previsões de irrigação simplificam muito o processo de tomada
+              de decisões.
+            </p>
+            <h4>- Pedro Santos</h4>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="section__container2 footer__container">
+      <div class="footer__col">
+        <div class="logo footer__logo">
+          <a href="#"><img src="/static/logo2.png" alt="logo" /></a>
+        </div>
+        <p class="section__description">
+          Revolucionando a Agricultura com IA.
+        </p>
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4 style="padding-left: 2rem;">Páginas</h4>
+        <ul class="footer__links">
+          <li><a href="{% url 'agroydrata' %}">Home</a></li>
+          <li><a href="{% url 'predicao' %}">Predição</a></li>
+          <li><a href="{% url 'historico' %}">Historico</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 style="padding-left: 2rem;">Contato</h4>
+        <ul class="footer__links">
+          <li>
+            <p>E-mail: <span>agroYdrata@gmail.com</span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div class="footer__bar">
+    Copyright © 2023 agroYdrata Todos os direitos reservados</div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="{% static 'main.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>

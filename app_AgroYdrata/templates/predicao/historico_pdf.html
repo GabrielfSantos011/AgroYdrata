@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Relatório de Predição</title>
+  <style>
+    /* Estilizando o título Relatório de Predição no topo da página */
+    .title {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .subtitulo {
+      text-align: left;
+      font-size: 20px;
+      margin-top: 2rem;
+    }
+
+    /* Estilizando a tabela */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    th,
+    td {
+      text-align: center;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      font-size: 16px;
+    }
+
+    /* Estilizando o texto abaixo da tabela */
+    .text {
+      font-size: 16px;
+      text-align: left;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="title">Relatório de Predição</h1>
+
+  <h2 class="subtitulo">Dados do Terreno</h2>
+  <table>
+    <tr>
+      <th>Nitrogênio</th>
+      <th>Fósforo</th>
+      <th>Potássio</th>
+      <th>Temperatura</th>
+      <th>Umidade</th>
+      <th>pH</th>
+      <th>Precipitação</th>
+    </tr>
+    <tr>
+      <td>{{ dado.nitrogenio }}</td>
+      <td>{{ dado.fosforo }}</td>
+      <td>{{ dado.potassio }}</td>
+      <td>{{ dado.temperatura }}</td>
+      <td>{{ dado.umidade }}</td>
+      <td>{{ dado.ph }}</td>
+      <td>{{ dado.precipitacao }}</td>
+    </tr>
+  </table>
+
+  <p class="text">
+    Conforme os dados informados acima do seu terreno no dia {{ dado.data_insercao|date:"d/m/Y" }}
+    as {{ dado.horario_insercao|time:"H:i" }} para o tipo de
+    cultivo {{ dado.tp_planta }}, é indicado a quantidade de {{ resultado }} litros
+    de água anual para a irrigação da sua plantação de {{ dado.tp_planta }}.
+  </p>
+</body>
+
+</html>

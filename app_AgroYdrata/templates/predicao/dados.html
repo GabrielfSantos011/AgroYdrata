@@ -1,0 +1,33 @@
+{% extends 'predicao/base.html' %}
+{% block conteudo %}
+<div class="container">
+  <h1>Dados cadastrados</h1>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>id</th>
+      <th>nitrogenio</th>
+      <th>fosforo</th>
+      <th>potassio</th>
+      <th>ph</th>
+      <th>temperatura</th>
+      <th> umidade</th>
+      <th>precipitacao</th>
+      <th> tp_planta</th>
+    </tr>
+    {% for dado in dados %}
+    <tr>
+      <td>{{dado.id_dados}}</td>
+      <td>{{dado.nitrogenio}}</td>
+      <td>{{dado.fosforo}}</td>
+      <td>{{dado.potassio}}</td>
+      <td>{{dado.ph}}</td>
+      <td>{{dado.temperatura}}</td>
+      <td>{{dado.umidade}}</td>
+      <td>{{dado.precipitacao}}</td>
+      <td>{{dado.tp_planta}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

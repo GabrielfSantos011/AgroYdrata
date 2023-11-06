@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+  <title>Login</title>
+</head>
+
+
+<body>
+  <nav style="background-color: transparent"
+  class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'agroydrata' %}" style="font-size: 1.5rem;font-weight: 600;">AgroYdrata</a>
+      <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" style="color: white" href="{% url 'cadastro' %}">Cadastrar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="loginform">
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <h1>Login</h1>
+      {% for message in messages %}
+      <div class="mensagem">
+        <p id="messages" class="mensagem">{{message}}</p>
+      </div>
+      {% endfor %}
+      <div class="form-group">
+        <label for="exampleInputEmail1">E-mail</label>
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+        <div class="form-group">
+          <label for="exampleInputPassword1">Senha</label>
+          <input name="senha" class="form-control" id="exampleInputPassword1" placeholder="Password" type="password" class="form-control" id="inputPassword4" />
+        </div>
+        <div class="esqsenha">
+          <a href="{% url 'reset_password' %}">Esqueci minha Senha</a>
+        </div>
+        <button type="submit" class="btn">Entrar</button>
+        <div class="registro-link">
+          <p>Não tem uma conta? <a href="{% url 'cadastro' %}">Cadastrar</a></p>
+        </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
