@@ -1,5 +1,4 @@
 # ( AgroYdrata ) Sistema de Estimativa de Demanda de Água para Agricultura Sustentável
-Sistema de Estimativa de Demanda de Água para Agricultura Sustentável
 Este sistema utiliza análise de dados e aprendizado de máquina para estimar a demanda anual de água necessária para a irrigação de diferentes culturas agrícolas, contribuindo para uma gestão mais eficiente dos recursos hídricos.
 
 
